@@ -1,1 +1,1 @@
-$(".edit-<%= @task.id %>").closest('tr').html("<%= j render 'form', task: @task %>");
+$(".edit-<%= @task.id %>").parent().html("<%= j render 'form', task: @task %>");
