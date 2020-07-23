@@ -46,6 +46,7 @@ $(document).on("turbolinks:load", function() {
       dataType: 'json'
     }).then(function(res){
       let tr = $(task).closest('tr');
+      $(tr).children('td:first').html('');
       $('#done tbody').append(tr);
     })
 
