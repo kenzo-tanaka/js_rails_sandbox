@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy, :done]
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :done, :archived]
 
   # GET /tasks
   # GET /tasks.json
@@ -70,6 +70,10 @@ class TasksController < ApplicationController
 
   def done
     @task.done!
+  end
+
+  def archived
+    @task.archived!
   end
 
   private

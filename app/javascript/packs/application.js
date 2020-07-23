@@ -26,7 +26,7 @@ $(document).on("turbolinks:load", function() {
     const task = $(this);
 
     $.ajax({
-      type: 'DELETE',
+      type: 'PATCH',
       url: href,
       dataType: 'json',
     }).then(function(res){
