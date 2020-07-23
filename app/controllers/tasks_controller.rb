@@ -5,8 +5,12 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @task = Task.new
-    @wip_tasks = Task.wip.order(:id)
-    @all = Task.order(:updated_at)
+
+    if params[:tasks] == 'all'
+      @tasks = Task.order(:status)
+    else
+      @tasks = Task.wip.order(:id)
+    end
   end
 
   # GET /tasks/1
