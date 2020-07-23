@@ -18,14 +18,17 @@ require('jquery')
 
 $(document).on("turbolinks:load", function() {
   $('.delete').click(function(event){
+    const href = $(this).attr('href');
+    const task = $(this);
+
     $.ajax({
       type: 'DELETE',
-      url: '/tasks/18', // TODO: IDを指定
+      url: href,
       dataType: 'json',
-      complete: function() {
-        console.log('done'); // TODO: fadeOut
-      }
-    });
+    }).then(function(res){
+      $(task).closest('tr').fadeOut();
+    })
+
     event.preventDefault();
   });
 });
