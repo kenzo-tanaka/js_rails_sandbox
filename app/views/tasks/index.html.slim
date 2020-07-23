@@ -2,6 +2,20 @@ p#notice
   = notice
 h1
   | Tasks
+
+= form_with(model: @task, local: true) do |form|
+  - if @task.errors.any?
+    #error_explanation
+      ul
+        - @task.errors.full_messages.each do |message|
+          li
+            = message
+  .field
+    = form.label :title
+    = form.text_field :title, required: true
+  .actions
+    = form.submit
+
 table
   thead
     tr
@@ -19,5 +33,3 @@ table
           = link_to 'Edit', edit_task_path(task)
         td
           = link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }
-br
-= link_to 'New Task', new_task_path
