@@ -3,7 +3,7 @@ p#notice
 h1
   | Tasks
 
-= render 'form', task: @task
+/ = render 'form', task: @task
 
 table
   thead
@@ -17,6 +17,6 @@ table
         td
           = task.title
         td
-          = link_to 'Edit', edit_task_path(task), class: 'edit'
+          = link_to 'Edit', edit_task_path(task), class: "edit-#{task.id}", remote: true
         td
           = link_to 'Destroy', task, class: 'delete'
