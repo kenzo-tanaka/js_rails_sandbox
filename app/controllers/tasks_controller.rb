@@ -5,7 +5,8 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @task = Task.new
-    @tasks = Task.order(:id)
+    @wip_tasks = Task.wip.order(:id)
+    @done_tasks = Task.done.order(:id)
   end
 
   # GET /tasks/1

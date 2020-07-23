@@ -1,6 +1,8 @@
 tr
   td
+    input type="checkbox"
+  td
     = link_to task.title, edit_task_path(task), class: "edit-#{task.id}", remote: true
   td
-    = link_to task, class: 'delete text-danger' do
+    = link_to task, class: 'delete text-danger', remote: true do
       i.fas.fa-trash

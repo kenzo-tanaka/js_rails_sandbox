@@ -5,15 +5,36 @@
       span aria-hidden="true"  ×
 .mt-5
   = render 'form', task: @task
-  table.table.mt-3
+  h2.mt-3 WIP
+  table.table.mt-3#wip
     thead
       tr
-        th
-          | Title
-        th[colspan="3"]
+        th Check
+        th Title
+        th Delete
     tbody
-      - @tasks.each do |task|
+      - @wip_tasks.each do |task|
         tr
+          td
+            input type="checkbox"
+          td
+            = link_to task.title, edit_task_path(task), class: "edit-#{task.id}", remote: true
+          td
+            = link_to task, class: 'delete text-danger' do
+              i.fas.fa-trash
+  
+  h2.mt-3 DONE
+  table.table.mt-3#done
+    thead
+      tr
+        th Check
+        th Title
+        th Delete
+    tbody
+      - @done_tasks.each do |task|
+        tr
+          td
+            input type="checkbox"
           td
             = link_to task.title, edit_task_path(task), class: "edit-#{task.id}", remote: true
           td
