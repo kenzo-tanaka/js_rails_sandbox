@@ -35,4 +35,20 @@ $(document).on("turbolinks:load", function() {
 
     event.preventDefault();
   });
+
+  $('.done').click(function(e){
+    const href = $(this).attr('href');
+    const task = $(this);
+
+    $.ajax({
+      type: 'PATCH',
+      url: href,
+      dataType: 'json'
+    }).then(function(res){
+      let tr = $(task).closest('tr');
+      $('#done tbody').append(tr);
+    })
+
+    event.preventDefault();
+  })
 });
