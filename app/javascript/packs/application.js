@@ -34,6 +34,4 @@ $(document).on("turbolinks:load", function() {
 
     event.preventDefault();
   });
-
-  $('#notice').delay(3000).fadeOut();
 });
