@@ -15,3 +15,17 @@ require('jquery')
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+$(document).on("turbolinks:load", function() {
+  $('.delete').click(function(event){
+    $.ajax({
+      type: 'DELETE',
+      url: '/tasks/18', // TODO: IDを指定
+      dataType: 'json',
+      complete: function() {
+        console.log('done'); // TODO: fadeOut
+      }
+    });
+    event.preventDefault();
+  });
+});
