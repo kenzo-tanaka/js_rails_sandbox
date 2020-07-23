@@ -23,21 +23,3 @@
             = link_to task, class: 'delete text-danger' do
               i.fas.fa-trash
   
-  h2.mt-3 DONE
-  table.table.mt-3#done
-    thead
-      tr
-        th Check
-        th Title
-        th Delete
-    tbody
-      - @done_tasks.each do |task|
-        tr
-          td
-            / TODO: wip???????????
-            / = link_to 'DONE', done_task_path(task), method: :patch, remote: true, class: 'done'
-          td
-            = link_to task.title, edit_task_path(task), class: "edit-#{task.id}", remote: true
-          td
-            = link_to task, class: 'delete text-danger' do
-              i.fas.fa-trash

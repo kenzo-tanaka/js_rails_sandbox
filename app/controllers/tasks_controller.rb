@@ -6,7 +6,7 @@ class TasksController < ApplicationController
   def index
     @task = Task.new
     @wip_tasks = Task.wip.order(:id)
-    @done_tasks = Task.done.order(:updated_at)
+    @all = Task.order(:updated_at)
   end
 
   # GET /tasks/1

@@ -45,9 +45,7 @@ $(document).on("turbolinks:load", function() {
       url: href,
       dataType: 'json'
     }).then(function(res){
-      let tr = $(task).closest('tr');
-      $(tr).children('td:first').html('');
-      $('#done tbody').append(tr);
+      $(task).closest('tr').fadeOut();
     })
 
     event.preventDefault();
