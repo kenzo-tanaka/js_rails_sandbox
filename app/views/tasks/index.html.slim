@@ -1,20 +1,24 @@
-p#notice
-  = notice
-h1
-  | Tasks
+- if notice
+  .mt-3.alert.alert-primary.alert-dismissible.fade.show role="alert" 
+    strong = notice
+    button.close aria-label="Close" data-dismiss="alert" type="button" 
+      span aria-hidden="true"  ×
+.mt-5
+  h1
+    | Tasks
 
-= render 'form', task: @task
+  = render 'form', task: @task
 
-table.table
-  thead
-    tr
-      th
-        | Title
-      th[colspan="3"]
-  tbody
-    - @tasks.each do |task|
+  table.table.mt-3
+    thead
       tr
-        td
-          = link_to task.title, edit_task_path(task), class: "edit-#{task.id}", remote: true
-        td
-          = link_to 'Destroy', task, class: 'delete'
+        th
+          | Title
+        th[colspan="3"]
+    tbody
+      - @tasks.each do |task|
+        tr
+          td
+            = link_to task.title, edit_task_path(task), class: "edit-#{task.id}", remote: true
+          td
+            = link_to 'Destroy', task, class: 'delete'
