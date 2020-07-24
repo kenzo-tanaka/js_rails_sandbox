@@ -30,7 +30,7 @@ $(document).on("turbolinks:load", function() {
       url: href,
       dataType: 'json',
     }).then(function(res){
-      $(task).closest('tr').fadeOut();
+      $(task).closest('tr').hide();
     })
 
     event.preventDefault();
