@@ -36,13 +36,13 @@ $(document).on("turbolinks:load", function() {
     event.preventDefault();
   });
 
-  $('.done').click(function(e){
-    const href = $(this).attr('href');
+  $('.done').change(function(e){
+    const value = $(this).attr('value');
     const task = $(this);
 
     $.ajax({
       type: 'PATCH',
-      url: href,
+      url: '/tasks/' + value + '/done',
       dataType: 'json'
     }).then(function(res){
       $(task).closest('tr').fadeOut();

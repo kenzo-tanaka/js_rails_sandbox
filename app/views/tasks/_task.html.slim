@@ -1,6 +1,7 @@
 tr
   td
-    = link_to 'DONE', done_task_path(task), method: :patch, remote: true, class: 'done' unless task.done?
+    - unless task.done?
+      input.done type="checkbox" value="#{task.id}" 
   td
     = link_to task.title, edit_task_path(task), class: "edit-#{task.id}", remote: true
   td
